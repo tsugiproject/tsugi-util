@@ -6,32 +6,15 @@ Tsugi-util contains a set of utility classes to aid  in the development
 of BasicLTI consumers and providers. They deal with much of the heavy lifting
 and make the process more opaque to the developer.
 
-There is no Sakai-specific code but the code is developed and maintained in the 
-Sakai repository since it is so core to Sakai and heavily tested being part of 
-Sakai.  Please do **not** put any org.sakaiproject dependencies to this folder
-please use `basiclti-common` for code with org.sakaiproject dependencies.
+This code originated in the Sakai project as "basiclti-util" - it was always
+supposed to be "Sakai-free" and many Java projects used that Sakai artifact.
+As of May, 2017 - this is pulled into the Tsugi project for future maintenance
+and development as it is really the "level-1" of the Tsugi Java 
+application stack.
 
-This code is released in two ways.  Within Sakai this code is normally released
-as part of the Sakai build process:
-
-    <groupId>org.sakaiproject.basiclti</groupId>
-    <artifactId>basiclti-util</artifactId>
-
-The *org.sakaiproject.basiclti* artifact simply tracks the Sakai versioning 
-and is updated automatically by the Sakai release processes.  Over the years,
-folks have used this code in their java apps by pulling in a particular Sakai
-version of this code.
-
-From time to time this is also released *pom-tsugi.xml* as the following
-artifact:
-
-    <groupId>org.tsugi</groupId>
-    <artifactId>tsugi-util</artifactId>
-
-This artifact follows its own semantic versioning and can be released any time.
-
-This artifact is probably a better artifact to use for non-Sakai projects
-as bugs can be fixed and a release can be made off-cycle.
+This new independent artifact makes much more sense for non-Sakai Java projects.
+This also allows a simpler way to contribute new code and bug fixes to this
+library.
 
 Using tsugi-util
 ----------------
@@ -71,7 +54,7 @@ This way when maven sees a SNAPSHOT version, it can find where to download it fr
 
 You can see this all in action in the Tsugi Java Servlet:
 
-    https://github.com/csev/tsugi-java-servlet
+    https://github.com/tsugiproject/tsugi-java-servlet
 
 Tsugi Architecture
 ------------------
@@ -83,7 +66,7 @@ The second level API is opinionated, with conventions for data tables and sessio
 As a result the method signatures for the second level Tsugi APIs are much simpler.
 The second-level API for tsugi-java is here:
 
-    https://github.com/csev/tsugi-java
+    https://github.com/tsugiproject/tsugi-java
 
 The tsugi-java-servlet using both the tsugi-util and tsugi-java libraries.
 
@@ -92,11 +75,7 @@ Releasing tsugi-util to Sonatype
 
 Set up `settings.xml` as described above.
 
-    cd trunk/basiclti/tsugi-util
-    cp pom-tsugi.xml pom.xml
     mvn compile install deploy
-    git checkout pom.xml
-
 
 Check results of the deploy at:
 
