@@ -73,7 +73,33 @@ The tsugi-java-servlet using both the tsugi-util and tsugi-java libraries.
 Releasing tsugi-util to Sonatype
 --------------------------------
 
-Set up `settings.xml` as described above.
+Here is a sample `~.m2/settings.xml`:
+
+    <settings>
+      <servers>
+        <server>
+          <id>ossrh</id>
+          <username>drchuck</username>
+          <password>?secret!</password>
+        </server>
+      </servers>
+    <profiles>
+      <profile>
+         <id>allow-snapshots</id>
+            <activation><activeByDefault>true</activeByDefault></activation>
+         <repositories>
+           <repository>
+             <id>snapshots-repo</id>
+             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+             <releases><enabled>false</enabled></releases>
+             <snapshots><enabled>true</enabled></snapshots>
+           </repository>
+         </repositories>
+       </profile>
+    </profiles>
+    </settings>
+
+Once you have settings set up, 
 
     mvn compile install deploy
 
