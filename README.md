@@ -7,12 +7,12 @@ of BasicLTI consumers and providers. They deal with much of the heavy lifting
 and make the process more opaque to the developer.
 
 This code originated in the Sakai project as "basiclti-util" - it was always
-supposed to be "Sakai-free" and many Java projects used that Sakai artifact.
+designed to be "Sakai-free" and many Java projects used that Sakai artifact.
 As of May, 2017 - this is pulled into the Tsugi project for future maintenance
 and development as it is really the "level-1" of the Tsugi Java 
 application stack.
 
-This new independent artifact makes much more sense for non-Sakai Java projects.
+This new independent repo for this artifact makes much more sense for non-Sakai Java projects.
 This also allows a simpler way to contribute new code and bug fixes to this
 library.
 
@@ -69,6 +69,8 @@ The second-level API for tsugi-java is here:
     https://github.com/tsugiproject/tsugi-java
 
 The tsugi-java-servlet using both the tsugi-util and tsugi-java libraries.
+
+    https://github.com/tsugiproject/tsugi-java-servlet
 
 Releasing tsugi-util to Sonatype
 --------------------------------
