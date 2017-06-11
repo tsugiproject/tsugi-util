@@ -16,6 +16,14 @@ This new independent repo for this artifact makes much more sense for non-Sakai 
 This also allows a simpler way to contribute new code and bug fixes to this
 library.
 
+Compiling a Local Copy
+----------------------
+
+There are 'deploy to SonaType' instructions below.  But if you want to compile and 
+develop locally, use this command:
+
+    mvn clean compile install
+
 Using tsugi-util
 ----------------
 
@@ -103,7 +111,7 @@ Here is a sample `~.m2/settings.xml`:
 
 Once you have settings set up, 
 
-    mvn compile install deploy
+    mvn clean compile install deploy
 
 Check results of the deploy at:
 
