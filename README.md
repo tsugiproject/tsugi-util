@@ -33,13 +33,13 @@ You can add the following to your pom.xml:
     <dependency>
         <groupId>org.tsugi</groupId>
         <artifactId>tsugi-java</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>0.2-SNAPSHOT</version>
     </dependency>
 
     <dependency>
        <groupId>org.tsugi</groupId>
        <artifactId>tsugi-util</artifactId>
-       <version>0.1-SNAPSHOT</version>
+       <version>0.2-SNAPSHOT</version>
     </dependency>
 
 If you need to enable snapshot downloading add the following to your
@@ -112,7 +112,7 @@ Here is a sample `~.m2/settings.xml`:
 
 Once you have settings set up, 
 
-    mvn clean compile install deploy
+    mvn clean compile install deploy -Dgpg.passphrase=Whatever clean
 
 Check results of the deploy at:
 
