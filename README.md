@@ -105,7 +105,7 @@ The tsugi-java-servlet using both the tsugi-util and tsugi-java libraries.
 Releasing tsugi-util to Sonatype
 --------------------------------
 
-Here is a sample `~.m2/settings.xml`:
+Here is a sample `~/.m2/settings.xml`:
 
     <settings>
       <servers>
