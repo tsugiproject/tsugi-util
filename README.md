@@ -25,6 +25,27 @@ develop locally, use this command:
 
     mvn clean compile install
 
+
+Running Unit Tests
+------------------
+
+Use the command 
+
+    mvn test
+
+Bringing in Changes from Sakai
+------------------------------
+
+This code also lives (for now) in the Sakai tree to compare them:
+
+    bash compare.sh | sh -vx
+
+To pull the changes in:
+
+    bash update.sh
+
+You probably want to hand-run the `cp` commands.
+
 Using tsugi-util
 ----------------
 
