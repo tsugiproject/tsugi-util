@@ -133,7 +133,8 @@ Here is a sample `~/.m2/settings.xml`:
 
 Once you have settings set up, 
 
-    mvn clean compile install deploy -Dgpg.passphrase=Whatever clean
+    mvn clean javadoc:jar compile install deploy -Dgpg.passphrase=Whatever
+    mvn clean #afterwards
 
 Check results of the deploy at:
 
@@ -143,4 +144,26 @@ After a while the files migrate to:
 
     https://oss.sonatype.org/content/repositories/snapshots/org/tsugi/
 
+Doing A Numbered Release
+------------------------
+
+    git checkout -b 0.2.x
+    change pom.xml version 0.2.1
+    mvn clean javadoc:jar compile install deploy -Dgpg.passphrase=Whatever
+    git commmit -a
+    git push origin 0.2.x
+
+    git checkout master
+    change pom.xml version 0.3-SNAPSHOT
+    mvn clean javadoc:jar compile install deploy -Dgpg.passphrase=Whatever
+    git commmit -a
+    git push
+
+Check results of the deploy at:
+
+    https://oss.sonatype.org/#nexus-search;quick~tsugi-util
+
+After a while the files migrate to:
+
+    https://oss.sonatype.org/content/repositories/snapshots/org/tsugi/
 
