@@ -54,13 +54,13 @@ You can add the following to your pom.xml:
     <dependency>
         <groupId>org.tsugi</groupId>
         <artifactId>tsugi-java</artifactId>
-        <version>0.2-SNAPSHOT</version>
+        <version>0.3-SNAPSHOT</version>
     </dependency>
 
     <dependency>
        <groupId>org.tsugi</groupId>
        <artifactId>tsugi-util</artifactId>
-       <version>0.2-SNAPSHOT</version>
+       <version>0.3-SNAPSHOT</version>
     </dependency>
 
 If you need to enable snapshot downloading add the following to your
