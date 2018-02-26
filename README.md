@@ -102,6 +102,14 @@ The tsugi-java-servlet using both the tsugi-util and tsugi-java libraries.
 
     https://github.com/tsugiproject/tsugi-java-servlet
 
+Generating a local copy of the javadocs
+---------------------------------------
+
+If you want to work on or view the java docs, use the following commands:
+
+    mvn javadoc:javadoc
+    open apidocs/index.html
+
 Releasing tsugi-util to Sonatype
 --------------------------------
 
