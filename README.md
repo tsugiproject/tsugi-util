@@ -108,7 +108,7 @@ Generating a local copy of the javadocs
 If you want to work on or view the java docs, use the following commands:
 
     mvn javadoc:javadoc
-    open apidocs/index.html
+    open target/site/apidocs/index.html
 
 Releasing tsugi-util to Sonatype
 --------------------------------
