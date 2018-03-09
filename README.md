@@ -141,8 +141,8 @@ Here is a sample `~/.m2/settings.xml`:
 
 Once you have settings set up, 
 
-    mvn clean javadoc:jar compile install deploy -Dgpg.passphrase=Whatever
-    mvn clean #afterwards
+    mvn -DperformRelease=true clean javadoc:jar compile install deploy -Dgpg.passphrase=Whatever
+    mvf clean #afterwards
 
 Check results of the deploy at:
 
