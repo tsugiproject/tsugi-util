@@ -4,7 +4,7 @@ package org.tsugi.casa.objects;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Generated;
+import javax.annotation.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

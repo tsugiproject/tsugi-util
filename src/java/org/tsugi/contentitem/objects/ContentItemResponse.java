@@ -4,7 +4,7 @@ package org.tsugi.contentitem.objects;
 import java.util.List;
 import java.util.ArrayList;
 
-import javax.annotation.Generated;
+import javax.annotation.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
