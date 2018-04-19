@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Generated;
+import javax.annotation.*;
 
 import org.tsugi.lti2.LTI2Config;
 import org.tsugi.lti2.LTI2Vars;
