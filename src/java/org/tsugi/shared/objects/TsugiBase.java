@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
 
-import javax.annotation.*;
+import javax.annotation.Generated;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;

@@ -21,6 +21,13 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.tsugi.basiclti.Base64;
+import org.tsugi.basiclti.XMLMap;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
 import lombok.extern.slf4j.Slf4j;
 
 import net.oauth.OAuthAccessor;
@@ -30,13 +37,6 @@ import net.oauth.OAuthValidator;
 import net.oauth.SimpleOAuthValidator;
 import net.oauth.server.OAuthServlet;
 import net.oauth.signature.OAuthSignatureMethod;
-
-import org.apache.commons.lang.StringEscapeUtils;
-import org.tsugi.basiclti.Base64;
-import org.tsugi.basiclti.XMLMap;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 
 @Slf4j
 public class IMSPOXRequest {

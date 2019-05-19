@@ -3,14 +3,13 @@ package org.tsugi.contentitem.objects;
 
 import java.util.ArrayList;
 
-import javax.annotation.*;
+import javax.annotation.Generated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import org.tsugi.shared.objects.TsugiBase;
-import org.tsugi.casa.CASAUtil;
 
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 @Generated("com.googlecode.jsonschema2pojo")

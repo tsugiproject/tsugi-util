@@ -6,7 +6,7 @@ package org.tsugi.shared.objects;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.*;
+import javax.annotation.Generated;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
