@@ -5,7 +5,7 @@
 
   <groupId>org.tsugi</groupId>
   <artifactId>tsugi-util</artifactId>
-  <version>0.3-SNAPSHOT</version>
+  <version>0.4-SNAPSHOT</version>
   <inceptionYear>2014</inceptionYear>
   <packaging>jar</packaging>
 
@@ -241,9 +241,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:git@github.com:csev/tsugi-java.git</connection>
-    <developerConnection>scm:git:git@github.com:csev/tsugi-java.git</developerConnection>
-    <url>git@github.com:csev/tsugi-java.git</url>
+    <connection>scm:git:git@github.com:tsugiproject/tsugi-util.git</connection>
+    <developerConnection>scm:git:git@github.com:tsugiproject/tsugi-util.git</developerConnection>
+    <url>git@github.com:tsugiproject/tsugi-util.git</url>
   </scm>
 
 </project>
