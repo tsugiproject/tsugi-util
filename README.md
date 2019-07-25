@@ -36,18 +36,18 @@ Use the command
 Bringing in Changes from Sakai
 ------------------------------
 
-This code also lives (for now) in the Sakai tree to compare them:
+This code also lives (for now) in the Sakai.  To compare the trees,
+run:
 
-    bash compare.sh | sh -vx
+    bash compare.sh
 
-To pull the changes in:
+It will issue some cp commands to bring the two trees up to date.  Alternatively
+you can just delete the contents of the `src` folder here and 
+copy the contents of the `basiclti-tsugi/src/` folder into this folder and
+let `git` figure out what changed.
 
-    bash update.sh
-
-You probably want to hand-run the `cp` commands.
-
-Using tsugi-util
-----------------
+Using tsugi-util in your application
+------------------------------------
 
 You can add the following to your pom.xml:
 
@@ -83,22 +83,6 @@ pom.xml:
 This way when maven sees a SNAPSHOT version, it can find where to download it from.
 
 You can see this all in action in the Tsugi Java Servlet:
-
-    https://github.com/tsugiproject/tsugi-java-servlet
-
-Tsugi Architecture
-------------------
-
-Tsugi generally has a two-layer architecuture for building APIs.  The lowest
-level API simply wraps the protocols.   This "tsugi-util" code is the low level API.
-
-The second level API is opinionated, with conventions for data tables and sessions.
-As a result the method signatures for the second level Tsugi APIs are much simpler.
-The second-level API for tsugi-java is here:
-
-    https://github.com/tsugiproject/tsugi-java
-
-The tsugi-java-servlet using both the tsugi-util and tsugi-java libraries.
 
     https://github.com/tsugiproject/tsugi-java-servlet
 
