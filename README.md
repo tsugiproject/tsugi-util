@@ -92,7 +92,7 @@ Generating a local copy of the javadocs
 If you want to work on or view the java docs, use the following commands:
 
     mvn javadoc:javadoc
-    open target/site/apidocs/index.html
+    open apidocs/index.html
 
 Releasing tsugi-util to Sonatype
 --------------------------------
@@ -139,14 +139,14 @@ After a while the files migrate to:
 Doing A Numbered Release
 ------------------------
 
-    git checkout -b 0.2.x
-    change pom.xml version 0.2.1
+    git checkout -b 0.3.x
+    change pom.xml version 0.3.1
     mvn clean javadoc:jar compile install deploy -Dgpg.passphrase=Whatever
     git commmit -a
-    git push origin 0.2.x
+    git push origin 0.3.x
 
     git checkout master
-    change pom.xml version 0.3-SNAPSHOT
+    change pom.xml version 0.4-SNAPSHOT
     mvn clean javadoc:jar compile install deploy -Dgpg.passphrase=Whatever
     git commmit -a
     git push
