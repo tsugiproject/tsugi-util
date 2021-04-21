@@ -41,10 +41,18 @@ run:
 
     bash compare.sh
 
+To copy the code from Sakai to here after reviewing the changes, use
+
+    bash update.sh
+
 It will issue some cp commands to bring the two trees up to date.  Alternatively
 you can just delete the contents of the `src` folder here and 
 copy the contents of the `basiclti-tsugi/src/` folder into this folder and
 let `git` figure out what changed.
+
+You may need to compare `pom.xml` in tsugi-util here and inside Sakai.  The versions
+come from `master/pom.xml` - Sakai does not need dependency versions because they 
+are inherited - but the versions need to be explicit here.
 
 Using tsugi-util in your application
 ------------------------------------
@@ -54,13 +62,13 @@ You can add the following to your pom.xml:
     <dependency>
         <groupId>org.tsugi</groupId>
         <artifactId>tsugi-java</artifactId>
-        <version>0.4-SNAPSHOT</version>
+        <version>21-SNAPSHOT</version>
     </dependency>
 
     <dependency>
        <groupId>org.tsugi</groupId>
        <artifactId>tsugi-util</artifactId>
-       <version>0.4-SNAPSHOT</version>
+       <version>21-SNAPSHOT</version>
     </dependency>
 
 If you need to enable snapshot downloading add the following to your
@@ -139,14 +147,14 @@ After a while the files migrate to:
 Doing A Numbered Release
 ------------------------
 
-    git checkout -b 0.3.x
-    change pom.xml version 0.3.1
+    git checkout -b 21.0.0
+    change pom.xml version 21.0.0
     mvn clean javadoc:jar compile install deploy -Dgpg.passphrase=Whatever
     git commit -a
-    git push --set-upstream origin 0.3.x
+    git push --set-upstream origin 21.0.0
 
     git checkout master
-    change pom.xml version 0.4-SNAPSHOT
+    change pom.xml version 21-SNAPSHOT
     mvn clean javadoc:jar compile install deploy -Dgpg.passphrase=Whatever
     git commit -a
     git push

@@ -12,6 +12,11 @@ import org.tsugi.lti13.objects.LaunchLIS;
 import org.tsugi.lti13.objects.BasicOutcome;
 import org.tsugi.lti13.objects.Endpoint;
 import org.tsugi.lti13.objects.LTI11Transition;
+import org.tsugi.lti13.objects.PlatformConfiguration;
+import org.tsugi.lti13.objects.LTIPlatformConfiguration;
+import org.tsugi.lti13.objects.LTIPlatformMessage;
+
+import org.tsugi.lti13.LTICustomVars;
 
 import org.tsugi.jackson.JacksonUtil;
 
@@ -37,7 +42,7 @@ public class LTI13ObjectTest {
 
 		LaunchJWT lj = new LaunchJWT();
 		lj.launch_presentation.width = 42;
-		lj.issuer = "https://www.sakaiproject.org/";
+		lj.issuer = "https://www.sakailms.org/";
 		lj.audience = "42_34989754987548";  // Client Id
 		lj.deployment_id = "42_this_field_sucks";  // Client Id
 		lj.subject = "142";  // formerly user_id in LTI 1.1
@@ -56,7 +61,7 @@ public class LTI13ObjectTest {
 
 		lj.tool_platform = new ToolPlatform();
 		lj.tool_platform.name = "Sakai";
-		lj.tool_platform.url = "https://www.sakaiproject.org";
+		lj.tool_platform.url = "https://www.sakailms.org/";
 
 		lj.lti11_transition = new LTI11Transition();
 		lj.lti11_transition.user_id = "142";
@@ -117,7 +122,7 @@ public class LTI13ObjectTest {
 				.signWith(key)
 				.compact();
 
-		assertEquals(2183, jws.length());
+		assertEquals(2174, jws.length());
 		Matcher m = base64url_pattern.matcher(jws);
 		good = m.find();
 		if (!good) {
@@ -138,6 +143,32 @@ public class LTI13ObjectTest {
 			System.out.println("Bad header: " + header);
 		}
 		assertTrue(good);
+	}
+
+	@Test
+	public void testTwo() {
+		LTIPlatformConfiguration lpc = new LTIPlatformConfiguration();
+		LTIPlatformMessage mp = new LTIPlatformMessage();
+		mp.type = LaunchJWT.MESSAGE_TYPE_LAUNCH;
+		lpc.messages_supported.add(mp);
+        mp = new LTIPlatformMessage();
+        mp.type = LaunchJWT.MESSAGE_TYPE_DEEP_LINK;
+        lpc.messages_supported.add(mp);
+		lpc.variables.add(LTICustomVars.USER_ID);
+		lpc.variables.add(LTICustomVars.PERSON_EMAIL_PRIMARY);
+
+		PlatformConfiguration pc = new PlatformConfiguration();
+		pc.lti_platform_configuration = lpc;
+
+		String pcs = JacksonUtil.toString(pc);
+
+		String expected =
+"{\"token_endpoint_auth_methods_supported\":[\"private_key_jwt\"],\"token_endpoint_auth_signing_alg_values_supported\":[\"RS256\"],\"scopes_supported\":[\"openid\"],\"response_types_supported\":[\"id_token\"],\"subject_types_supported\":[\"public\",\"pairwise\"],\"id_token_signing_alg_values_supported\":[\"RS256\"],\"claims_supported\":[\"iss\",\"aud\"],\"https://purl.imsglobal.org/spec/lti-platform-configuration\":{\"messages_supported\":[{\"type\":\"LtiResourceLinkRequest\",\"placements\":[]},{\"type\":\"LtiDeepLinkingRequest\",\"placements\":[]}],\"variables\":[\"User.id\",\"Person.email.primary\"]}}";
+
+		if ( ! expected.equals(pcs) ) {
+			System.out.println(pcs);
+		}
+		assertEquals(pcs, expected);
 	}
 
 }
